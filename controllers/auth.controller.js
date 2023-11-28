@@ -35,7 +35,7 @@ class AuthController {
 
     async isSignedIn(req, res) {
         try {
-            const email = jwt.verify(req.body.authorization, signature).email
+            const email = jwt.verify(req.headers.authorization, signature).email
             res.json({signedIn: true})
         } catch (e) {
             res.json({signedIn: false})
